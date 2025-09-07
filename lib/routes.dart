@@ -22,7 +22,7 @@ final List<PageRoute> pages = [
     path: '/',
     icon: Icons.library_books,
     label: 'Library',
-    builder: (context, state) => LibraryPage(title: "TODO: Library"),
+    builder: (context, state) => LibraryPage(),
   ),
   PageRoute(
     path: '/settings',

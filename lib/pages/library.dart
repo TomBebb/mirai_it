@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mirai_it/widgets/library_grid_item.dart';
 
 class LibraryPage extends StatefulWidget {
-  const LibraryPage({super.key, required this.title});
-
-  final String title;
-
   @override
   State<LibraryPage> createState() => _LibraryPageState();
 }
