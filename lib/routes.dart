@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'package:mirai_it/pages/home.dart';
+import 'package:mirai_it/pages/library.dart';
 import 'package:mirai_it/pages/settings.dart';
 
 class PageRoute extends GoRoute {
@@ -18,15 +18,9 @@ class PageRoute extends GoRoute {
 final List<PageRoute> pages = [
   PageRoute(
     path: '/',
-    icon: Icons.home,
-    label: 'Home',
-    builder: (context, state) => MyHomePage(title: "TODO"),
-  ),
-  PageRoute(
-    path: '/purchased',
-    icon: Icons.shop,
-    label: 'Purchased',
-    builder: (context, state) => MyHomePage(title: "TODO"),
+    icon: Icons.library_books,
+    label: 'Library',
+    builder: (context, state) => LibraryPage(title: "TODO: Library"),
   ),
   PageRoute(
     path: '/settings',
@@ -43,7 +37,15 @@ final List<RouteBase> _routes = [
     builder: (context, state, child) => Scaffold(
       body: child,
       appBar: AppBar(
+        leading: BackButton(onPressed: () => context.pop()),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          FilledButton.icon(
+            onPressed: () => print("Show settings"),
+            icon: Icon(Icons.settings),
+            label: Text('Settings'),
+          ),
+        ],
         title: Text(
           "${pages.firstWhere((PageRoute page) => page.path == state.uri.path).label} - MiraiIt",
         ),
