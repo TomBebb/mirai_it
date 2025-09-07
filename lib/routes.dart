@@ -31,7 +31,13 @@ final List<PageRoute> pages = [
     builder: (context, state) => SettingsPage(),
   ),
 ];
-final List<GoRoute> routes = [...pages];
+final List<GoRoute> routes = [
+  ...pages,
+  GoRoute(
+    path: '/reader',
+    builder: (context, state) => ReaderPage(type: PageReaderType.topToBottom),
+  ),
+];
 
 final List<RouteBase> _routes = [
   ShellRoute(
@@ -39,7 +45,7 @@ final List<RouteBase> _routes = [
     builder: (context, state, child) => Scaffold(
       body: child,
       appBar: AppBar(
-        leading: BackButton(onPressed: () => context.pop()),
+        leading: BackButton(onPressed: () => router.pop()),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           FilledButton.icon(
@@ -50,23 +56,20 @@ final List<RouteBase> _routes = [
             label: Text('Settings'),
           ),
         ],
-        title: Text(
-          "${pages.firstWhere((PageRoute page) => page.path == state.uri.path).label} - MiraiIt",
+        title: Row(
+          spacing: 5,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              pages
+                  .firstWhere((PageRoute page) => page.path == state.uri.path)
+                  .icon,
+            ),
+            Text(
+              "${pages.firstWhere((PageRoute page) => page.path == state.uri.path).label} - MiraiIt",
+            ),
+          ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) => context.go(pages[index].path),
-        currentIndex: pages.indexWhere(
-          (PageRoute page) => page.path == state.uri.path,
-        ),
-        items: pages
-            .map(
-              (page) => BottomNavigationBarItem(
-                icon: Icon(page.icon),
-                label: page.label,
-              ),
-            )
-            .toList(),
       ),
     ),
   ),
