@@ -31,6 +31,7 @@ final List<PageRoute> pages = [
     builder: (context, state) => SettingsPage(),
   ),
 ];
+
 final List<GoRoute> routes = [
   ...pages,
   GoRoute(
@@ -42,46 +43,45 @@ final List<GoRoute> routes = [
 final List<RouteBase> _routes = [
   ShellRoute(
     routes: routes,
-    builder: (context, state, child) => Scaffold(
-      body: child,
-      appBar: AppBar(
-        leading: BackButton(
-          style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(
-              Theme.of(context).colorScheme.inverseSurface,
-            ),
-            foregroundColor: WidgetStatePropertyAll(
-              Theme.of(context).colorScheme.surface,
-            ),
-          ),
-          onPressed: router.canPop() ? () => router.pop() : null,
-        ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        actions: [
-          FilledButton.icon(
-            onPressed: state.fullPath != "/settings"
-                ? () => router.push("/settings")
-                : null,
-            icon: Icon(Icons.settings),
-            label: Text('Settings'),
-          ),
-        ],
-        title: Row(
-          spacing: 5,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(
-              pages
-                  .firstWhere((PageRoute page) => page.path == state.uri.path)
-                  .icon,
-            ),
-            Text(
-              "${pages.firstWhere((PageRoute page) => page.path == state.uri.path).label} - MiraiIt",
-            ),
-          ],
-        ),
-      ),
-    ),
+    builder: (context, state, child) {
+      final pageIndex = pages.indexWhere(
+        (route) => route.path == state.fullPath,
+      );
+      final PageRoute? page = pageIndex == -1 ? null : pages[pageIndex];
+      return Scaffold(
+        body: child,
+        appBar: pageIndex != -1
+            ? AppBar(
+                leading: BackButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                      Theme.of(context).colorScheme.inverseSurface,
+                    ),
+                    foregroundColor: WidgetStatePropertyAll(
+                      Theme.of(context).colorScheme.surface,
+                    ),
+                  ),
+                  onPressed: router.canPop() ? () => router.pop() : null,
+                ),
+                backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                actions: [
+                  FilledButton.icon(
+                    onPressed: state.fullPath != "/settings"
+                        ? () => router.push("/settings")
+                        : null,
+                    icon: Icon(Icons.settings),
+                    label: Text('Settings'),
+                  ),
+                ],
+                title: Row(
+                  spacing: 5,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Icon(page!.icon), Text("${page.label} - MiraiIt")],
+                ),
+              )
+            : null,
+      );
+    },
   ),
 ];
 // GoRouter configuration

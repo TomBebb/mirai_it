@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../routes.dart' show router;
+
 class LibraryGridItem extends StatelessWidget {
   const LibraryGridItem({super.key, required this.title, required this.poster});
 
@@ -10,7 +12,7 @@ class LibraryGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: InkWell(
-        onTap: () => print("$title pressed"),
+        onTap: () => router.push("/reader"),
         child: Column(
           children: [
             Text(
