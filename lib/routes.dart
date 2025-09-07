@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:mirai_it/meta.dart';
 import 'package:mirai_it/pages/library.dart';
+import 'package:mirai_it/pages/reader.dart';
 import 'package:mirai_it/pages/settings.dart';
 
 class PageRoute extends GoRoute {
@@ -41,7 +43,9 @@ final List<RouteBase> _routes = [
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           FilledButton.icon(
-            onPressed: () => print("Show settings"),
+            onPressed: state.fullPath != "/settings"
+                ? () => router.push("/settings")
+                : null,
             icon: Icon(Icons.settings),
             label: Text('Settings'),
           ),
