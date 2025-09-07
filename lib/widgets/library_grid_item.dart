@@ -9,16 +9,19 @@ class LibraryGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Column(
-        children: [
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          poster,
-        ],
+      child: InkWell(
+        onTap: () => print("$title pressed"),
+        child: Column(
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            poster,
+          ],
+        ),
       ),
     );
   }
