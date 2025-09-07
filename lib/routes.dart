@@ -45,7 +45,17 @@ final List<RouteBase> _routes = [
     builder: (context, state, child) => Scaffold(
       body: child,
       appBar: AppBar(
-        leading: BackButton(onPressed: () => router.pop()),
+        leading: BackButton(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(
+              Theme.of(context).colorScheme.inverseSurface,
+            ),
+            foregroundColor: WidgetStatePropertyAll(
+              Theme.of(context).colorScheme.surface,
+            ),
+          ),
+          onPressed: router.canPop() ? () => router.pop() : null,
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           FilledButton.icon(
