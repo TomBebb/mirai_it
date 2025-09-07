@@ -17,7 +17,7 @@ class SettingsState extends State<SettingsPage> {
         body: const TabBarView(
           children: [
             Text("TODO: Appearance"),
-            Text('TODO: LIBRARY'),
+            Text('TODO: Library'),
             Text('TODO: Reader'),
           ],
         ),
