@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class LibraryGridItem extends StatelessWidget {
-  const LibraryGridItem({super.key, required this.title, required this.url});
+  const LibraryGridItem({super.key, required this.title, required this.poster});
 
   final String title;
-  final String url;
+  final Image poster;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,9 @@ class LibraryGridItem extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          Image.network(url),
+          poster,
         ],
       ),
     );

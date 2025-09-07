@@ -23,61 +23,72 @@ class _LibraryPageState extends State<LibraryPage> {
       children: <Widget>[
         LibraryGridItem(
           title: "Lady Lily wants a Lazy Afternoon",
-          url:
-              "https://img.mangamirai.com/products/BT000191337500100102/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000191337500100102/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "I Want to End This Love Game",
-          url:
-              "https://img.mangamirai.com/products/BT000191337500100102/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000191337500100102/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
-        ),
-
-        LibraryGridItem(
-          title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
 
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
 
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
+        ),
+
+        LibraryGridItem(
+          title: "Red Ranger",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
         LibraryGridItem(
           title: "Red Ranger",
-          url:
-              "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          poster: Image.network(
+            "https://img.mangamirai.com/products/BT000171206201601602/book_cover(2).jpg",
+          ),
         ),
       ],
     );
